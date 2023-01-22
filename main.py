@@ -1,8 +1,8 @@
 from pyrogram import Client
 status = True
 
-api_id = 22675233#int(input("API id:"))
-api_hash = 324ef3f73ba621dfac2cad87be556d21#input("API hash:")
+api_id = 22675233
+api_hash = "324ef3f73ba621dfac2cad87be556d21"
 
 bot = Client(name="new-client-bot",api_id=api_id,api_hash=api_hash)
 #nice = list(input("good words:").split())
