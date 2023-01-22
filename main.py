@@ -5,8 +5,10 @@ api_id = int(input("API id:"))
 api_hash = input("API hash:")
 
 bot = Client(name="new-client-bot",api_id=api_id,api_hash=api_hash)
-nice = list(input("good words:").split())
-bad = list(input("bad words:").split())
+#nice = list(input("good words:").split())
+#bad = list(input("bad words:").split())
+nice = list("فنی پایین دارم".split())
+bad = list("بالا معاوضه میخوام میخام تعویض عوض درخواستی".split())
 
 def good(s):
   s = s.split()
