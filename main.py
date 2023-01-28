@@ -3,7 +3,7 @@ from os import getenv
 
 Hungry = True
 
-api_id = getenv("api_id")
+api_id = int(getenv("api_id"))
 api_hash = getenv("api_hash")
 
 def splitter(s, c):
