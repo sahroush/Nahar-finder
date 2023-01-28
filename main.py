@@ -1,5 +1,5 @@
 from pyrogram import Client
-from os import getenv
+from os 
 
 Hungry = True
 
@@ -9,7 +9,9 @@ api_hash = getenv("api_hash")
 def splitter(s, c):
     res = []
     for i in s:
-        res.append(i.split(c))
+        nw = i.split(c)
+        for j in nw:
+            res.append(j)
     return res
 
 def List(s):
