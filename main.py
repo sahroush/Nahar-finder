@@ -1,19 +1,21 @@
 from pyrogram import Client
-status = True
+from os import getenv
 
-api_id = 22675233
-api_hash = "324ef3f73ba621dfac2cad87be556d21"
+Hungry = True
+
+api_id = getenv("api_id")
+api_hash = getenv("api_hash")
 
 bot = Client(name="new-client-bot",api_id=api_id,api_hash=api_hash)
-#nice = list(input("good words:").split())
-#bad = list(input("bad words:").split())
-nice = list("فنی بالا دارم".split())
-bad = list("معاوضه میخوام میخام تعویض عوض درخواستی".split())
+good = List(input("Enter your list of must-have words:"))
+bad = List(input("Enter your list of banned words:"))
 
-def good(s):
+
+
+def check(s):
   s = s.split()
-  global nice, bad
-  for i in nice:
+  global good, bad
+  for i in good:
     if(not i in s):
       return 0
   for i in bad:
@@ -23,22 +25,21 @@ def good(s):
 
 @bot.on_message()
 async def test_bot(client, message):
-  global status
-  #if message.text in ('hello'):
+  global Hungry
+  print(message.chat)
   s = message.text
-  if status and good(s):
-    #print(message)
+  if Hungry and check(s):
     await message.reply('استفاده')
     await bot.send_message(message.from_user.id, 'سلام\nوقتتون بخیر\nاستفاده')
-    status = False
-  if message.text == '!active':
-    status = True
+    Hungry = False
+  if message.text == '!activate':
+    Hungry = True
     await message.reply('Bot activated ✅')
-  if message.text == '!deactive':
-    status = True
+  if message.text == '!deactivate':
+    Hungry = True
     await message.reply('Bot dactivated ❌')
   if message.text == '!status':
-    if status:
+    if Hungry:
       await message.reply('Bot is active ✅')
     else:
       await message.reply("Bot isn't active ❌")
