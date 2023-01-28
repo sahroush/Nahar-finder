@@ -6,11 +6,23 @@ Hungry = True
 api_id = getenv("api_id")
 api_hash = getenv("api_hash")
 
+def splitter(s, c):
+    res = []
+    for i in s:
+        res.append(i.split(c))
+    return res
+
+def List(s):
+    string = " ،,‌."
+    res = s.split()
+    for char in string:
+        res = splitter(res, char)
+    return res
+
+
 bot = Client(name="new-client-bot",api_id=api_id,api_hash=api_hash)
 good = List(input("Enter your list of must-have words:"))
 bad = List(input("Enter your list of banned words:"))
-
-
 
 def check(s):
   s = s.split()
