@@ -1,5 +1,5 @@
 from pyrogram import Client
-from os 
+from os import getenv
 
 Hungry = True
 
