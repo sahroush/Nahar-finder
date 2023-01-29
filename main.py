@@ -41,10 +41,7 @@ def check(s):
 @bot.on_message()
 async def test_bot(client, message):
   global Hungry, Testing
-  #print(message.chat)
   s = message.text
-  print(s)
-  print(type(s))
   if Hungry and check(s) and (Testing or message.chat.id == -1001147339220):
     await message.reply('استفاده')
     await bot.send_message(message.from_user.id, 'سلام\nوقتتون بخیر\nاستفاده')
