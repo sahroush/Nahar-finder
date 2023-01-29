@@ -28,7 +28,7 @@ good = List(input("Enter your list of must-have words:"))
 bad = List(input("Enter your list of banned words:"))
 
 def check(s):
-  s = List(s.split())
+  s = List(s)
   global good, bad
   for i in good:
     if(not i in s):
