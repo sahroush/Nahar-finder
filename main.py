@@ -2,7 +2,6 @@ from pyrogram import Client
 from os import getenv
 
 Hungry = True
-Testing = False
 
 api_id = int(getenv("api_id"))
 api_hash = getenv("api_hash")
@@ -40,20 +39,12 @@ def check(s):
 
 @bot.on_message()
 async def test_bot(client, message):
-  global Hungry, Testing
+  global Hungry
   s = message.text
-  if Hungry and check(s) and (Testing or message.chat.id == -1001147339220):
+  if Hungry and check(s):
     await message.reply('استفاده')
     await bot.send_message(message.from_user.id, 'سلام\nوقتتون بخیر\nاستفاده')
     Hungry = False
-  if message.text == '!Testing-mode':
-    Testing = not Testing
-    if Testing:
-      await message.reply('Testing mode on ✅')
-    else:
-      await message.reply('Testing mode off ❌')
-  if Testing:
-    Hungry = True
   if message.text == '!activate':
     Hungry = True
     await message.reply('Bot activated ✅')
