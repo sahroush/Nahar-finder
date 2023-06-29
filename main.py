@@ -12,7 +12,7 @@ bot = Client(name="new-client-bot",api_id=api_id,api_hash=api_hash)
 @bot.on_message()
 async def test_bot(client, message):
   s = message.text
-  if "سوشی" in  s:
+  if "سروش" in s or "soroush" in s:
     for chunk in client.send_message("soroushbot", s):
       pass
     await message.reply(chunk["text"])
