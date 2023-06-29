@@ -5,7 +5,7 @@ import json
 
 api_id = int(getenv("api_id"))
 api_hash = getenv("api_hash")
-client = poe.Client(getenv("bot_token"))
+gpt = poe.Client(getenv("bot_token"))
 
 bot = Client(name="new-client-bot",api_id=api_id,api_hash=api_hash)
 
@@ -13,7 +13,7 @@ bot = Client(name="new-client-bot",api_id=api_id,api_hash=api_hash)
 async def test_bot(client, message):
   s = message.text
   if "سروش" in s or "soroush" in s:
-    for chunk in await client.send_message("soroushbot", s):
+    for chunk in await gpt.send_message("soroushbot", s):
       pass
     await message.reply(chunk["text"])
 
